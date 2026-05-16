@@ -1,5 +1,5 @@
 import unittest
-from calculator import add, subtract, multiply, divide
+from calculator import add, subtract, multiply, divide, power, modulo
 
 
 class TestCalculator(unittest.TestCase):
@@ -20,6 +20,16 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(divide(10, 2), 5)
         with self.assertRaises(ValueError):
             divide(10, 0)
+
+    def test_power(self):
+        self.assertEqual(power(2, 3), 8)
+        self.assertEqual(power(5, 0), 1)
+
+    def test_modulo(self):
+        self.assertEqual(modulo(10, 3), 1)
+        self.assertEqual(modulo(10, 2), 0)
+        with self.assertRaises(ValueError):
+            modulo(10, 0)
 
 
 if __name__ == "__main__":
